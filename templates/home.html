@@ -1,3 +1,4 @@
+<!-- templates/home.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,11 @@
 </head>
 <body>
     <h1>Welcome to our Online Shop!</h1>
-    <p>Explore our amazing products and enjoy a seamless shopping experience.</p>
+    <h2>Featured Products</h2>
+    <ul>
+        {% for product in products %}
+            <li>{{ product.name }} - ${{ product.price }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
