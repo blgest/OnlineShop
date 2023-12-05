@@ -8,11 +8,24 @@
 </head>
 <body>
     <h1>Welcome to our Online Shop!</h1>
+    <p>Explore our amazing products and enjoy a seamless shopping experience.</p>
     <h2>Featured Products</h2>
-    <ul>
-        {% for product in products %}
-            <li>{{ product.name }} - ${{ product.price }}</li>
-        {% endfor %}
-    </ul>
+      <ul>
+          {% for product in products %}
+              <li>
+                  {{ product.name }} - ${{ product.price }}
+                  <form action="{{ url_for('add_to_cart', product_id=product.id) }}" method="post">
+                      <input type="number" name="quantity" value="1" min="1">
+                      <button type="submit">Add to Cart</button>
+                  </form>
+              </li>
+          {% endfor %}
+      </ul>
+    <h2>Featured Products</h2>
+      <ul>
+          {% for product in products %}
+              <li>{{ product.name }} - ${{ product.price }}</li>
+          {% endfor %}
+      </ul>
 </body>
 </html>
